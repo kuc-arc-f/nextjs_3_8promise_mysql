@@ -5,7 +5,7 @@ export default async function (req, res){
   try{
     let connection =  await Mysql.get_connection()
 //console.log("uid=", req.query.uid)
-    var results = await connection.query('SELECT * FROM Task order by id desc')
+    var results = await connection.query('SELECT * FROM Task order by id desc LIMIT 100')
     var ret ={
       items: results
     }  

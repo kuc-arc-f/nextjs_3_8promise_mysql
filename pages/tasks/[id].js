@@ -7,7 +7,7 @@ import LibConst from '../../libs/LibConst'
 //
 function Page(data) {
   var item = data.item
-console.log(data.item )
+//console.log(data.item )
   return (
   <Layout>
     <div className="container">

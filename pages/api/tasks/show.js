@@ -6,7 +6,7 @@ export default async function (req, res){
 // console.log(req.query );
     var id = req.query.id
     let sql = `
-      SELECT * FROM Book where id=${id}
+      SELECT * FROM Task where id=${id}
     `;
     var post = await connection.query(sql)
 //    var post = await connection.query(sql)
