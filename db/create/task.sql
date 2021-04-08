@@ -13,7 +13,7 @@ CREATE TABLE `Task` (
 CREATE TABLE `Book` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
-    `updatedAt` DATETIME(3) NOT NULL,
+    `updatedAt` DATETIME(3),
     `title` VARCHAR(191) NOT NULL,
     `content` VARCHAR(191),
     `authorId` INTEGER,
@@ -35,7 +35,7 @@ CREATE TABLE `Category` (
 CREATE TABLE `Tag` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
-    `updatedAt` DATETIME(3) NOT NULL,
+    `updatedAt` DATETIME(3),
     `name` VARCHAR(191) NOT NULL,
 
     PRIMARY KEY (`id`)

@@ -6,12 +6,14 @@
 
  date    : 2021/04/07
 
- update  :
+ update  : 2021/04/08
 
 ***
 ### Summary
 
 Next.js  + promise-mysql + mysql 5.7 , CRUD sample
+
+* /book : related sample
 
 ***
 ### Setup
