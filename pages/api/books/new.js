@@ -10,7 +10,7 @@ export default async function (req, res){
     var ret_arr = {ret:0, msg:""}
     if (req.method === "POST") {
       var data = req.body
-//console.log(data);
+// console.log(data);
       var token =data._token
       var category_id =data.category_id
       var CSRF_SECRET = process.env.CSRF_SECRET
@@ -18,12 +18,13 @@ export default async function (req, res){
         throw new Error('Invalid Token, csrf_check');
       }
       let sql = `
-      INSERT INTO Book (title , content, createdAt ,categoryId 
+      INSERT INTO Book (title , content, createdAt ,categoryId ,tagIds
       ) VALUES
       ('${ data.title }',
       '${ data.content }',
       now(),
-      ${category_id} 
+      ${category_id} ,
+      '${ data.tagIds }'
       )
       `;
       var results = await connection.query(sql) 

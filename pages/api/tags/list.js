@@ -1,30 +1,23 @@
-import LibPrisma from '../../../libs/LibPrisma'
+import Mysql from "../../../libs/Mysql"
 import LibPagenate from '../../../libs/LibPagenate'
 
 //
 export default async function (req, res){
   try{
-    const prisma = LibPrisma.get_client()
+    let connection =  await Mysql.get_connection()    
     //console.log("uid=", req.query.uid)
     var items = []
-    //
-    const posts = await prisma.tag.findMany({
-      orderBy: [
-        {
-          id: 'desc',
-        },
-      ],
-    })
-//    items = LibPagenate.get_items(posts, 0, 100 )
-    items = posts
+    var sql = `
+    SELECT * FROM Tag order by id desc
+    `;
+    var results = await connection.query(sql)
     var ret ={
-      items: items
+      items: results
     }   
-    await prisma.$disconnect()
+    await connection.end();
     res.json(ret);
   } catch (err) {
       console.log(err);
       res.status(500).send(); 
-      await prisma.$disconnect()   
   }   
 };

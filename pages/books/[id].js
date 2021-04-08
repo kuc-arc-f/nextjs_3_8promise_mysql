@@ -4,12 +4,12 @@ import cookies from 'next-cookies'
 
 import Layout from '../../components/layout'
 import LibConst from '../../libs/LibConst'
-//import LibBook from '../../libs/LibBook'
+import LibBook from '../../libs/LibBook'
 //
 function Page(data) {
   var item = data.item
   var tags = data.tags
-//console.log(item)
+console.log(tags)
   return (
   <Layout>
     <div className="container">
@@ -43,16 +43,14 @@ console.log(ctx.query.id)
   url += "&user_id=" +user_id
   const res = await fetch(url)
   const json = await res.json()
-  /*
   url = BASE_URL + '/api/tags/list'
   const resTag = await fetch(url)
   const jsonTag = await resTag.json()  
   var tag_arr = JSON.parse(json.item.tagIds || '[]')
   var tags = LibBook.get_tag_items(tag_arr , jsonTag.items)
-  */
-console.log(json.item)
+//console.log(tags )
   var item = json.item
-  return { item:item , tags: [] }
+  return { item:item , tags: tags }
 }
 
 export default Page

@@ -16,18 +16,16 @@ export default class extends Component {
     url = BASE_URL + '/api/category/list'
     const resCategory = await fetch(url)
     const jsonCategory = await resCategory.json()
-    /*
     url = BASE_URL + '/api/tags/list'
     const resTag = await fetch(url)
     const jsonTag = await resTag.json()
-    */
-//console.log(jsonTag)
+//console.log(jsonTag.items)
     return { 
       user_id :cookies(ctx).user_id,
       csrf: json.csrf,
       BASE_URL: BASE_URL,
       category: jsonCategory.items,
-      tags: [],
+      tags: jsonTag.items,
     }
   }  
   constructor(props){
