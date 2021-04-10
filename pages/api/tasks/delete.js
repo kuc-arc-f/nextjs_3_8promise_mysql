@@ -9,7 +9,6 @@ export default async function (req, res){
     var data = req.body
 //console.log( data );
     var id = data.id
-//    var CSRF_SECRET = LibConst.get_config().CSRF_SECRET
     var CSRF_SECRET = process.env.CSRF_SECRET
     if(tokens.verify(CSRF_SECRET, data._token) === false){
       throw new Error('Invalid Token, csrf_check');

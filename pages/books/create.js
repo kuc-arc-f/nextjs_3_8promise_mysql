@@ -9,7 +9,7 @@ import Layout from '../../components/layout'
 //
 export default class extends Component {
   static async getInitialProps(ctx) {
-    var BASE_URL = LibConst.get_config().BASE_URL
+    var BASE_URL = process.env.BASE_URL
     var url = BASE_URL + '/api/token_get'
     const res = await fetch(url)
     const json = await res.json()

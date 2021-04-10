@@ -6,7 +6,7 @@
 
  date    : 2021/04/07
 
- update  : 2021/04/08
+ update  : 2021/04/10 
 
 ***
 ### Summary
@@ -23,7 +23,7 @@ Next.js  + promise-mysql + mysql 5.7 , CRUD sample
 ***
 ### Setup ,etc
 
-* .env , DATABASE_URL : mysql setting required
+* next.config.js, DATABASE_URL : mysql setting required
 
 ```
 MYSQL_HOST=localhost

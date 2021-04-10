@@ -10,7 +10,7 @@ import LibConst from '../../../libs/LibConst'
 export default class extends React.Component {
   static async getInitialProps(ctx) {
     console.log("id=", ctx.query.id)
-    var BASE_URL = LibConst.get_config().BASE_URL
+    var BASE_URL = process.env.BASE_URL
     var id = ctx.query.id
     var user_id = cookies(ctx).user_id
     var url = BASE_URL + '/api/tasks/show?id=' + id
@@ -43,8 +43,6 @@ console.log(props )
   componentDidMount(){
 //    console.log( "user_id=" ,this.props.user_id )
     if(typeof this.props.user_id === 'undefined'){
-//      flash.set({ messages_error: 'Error, Login require' })
-//      Router.push('/login');
     }
   }     
   handleChangeTitle(e){

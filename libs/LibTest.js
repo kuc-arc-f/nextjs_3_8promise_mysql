@@ -6,7 +6,6 @@ export default {
         content: "content-" + num,
         _token: token
       }
-      // process.env.BASE_URL + '/api/tasks/new'
       const res = await fetch('http://localhost:3000/api/tasks/new', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
